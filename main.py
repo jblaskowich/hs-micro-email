@@ -12,6 +12,8 @@ domain = os.environ["DOMAIN"]
 sender = os.environ["SENDER"]
 recipient = [os.environ["RECIPIENT"]]
 subject = os.environ["NATSPOST"]
+natsURL = os.environ["NATSURL"]
+natsPort = os.environ["NATSPORT"]
 
 def send_simple_message(title):
     return requests.post(
@@ -25,7 +27,7 @@ def send_simple_message(title):
 async def run(loop):
     nc = NATS()
 
-    await nc.connect("demo.nats.io:4222", loop=loop)
+    await nc.connect("{}{}".format(natsURL, natsPort), loop=loop)
 
     async def message_handler(msg):
         data = json.loads(msg.data.decode())
