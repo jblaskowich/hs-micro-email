@@ -35,6 +35,8 @@ $ export DOMAIN="your_mailgun_domain"
 $ export RECIPIENT="your_recipient"
 $ export SENDER="your_sender"                  // eg. "bot@leraleur.12monkey.fr"
 $ export NATSPOST="your_nats_post_channel"     // the channel used for posts
+$ export NATSURL="nats_url"
+$ export NATSPORT="nats_port"
 $ python main.py
 ```
 
@@ -46,7 +48,9 @@ $ export DOMAIN="your_mailgun_domain"
 $ export RECIPIENT="your_recipient"
 $ export SENDER="your_sender"                  // eg. "bot@leraleur.12monkey.fr"
 $ export NATSPOST="your_nats_post_channel"     // the channel used for posts
+$ export NATSURL="nats_url"
+$ export NATSPORT="nats_port"
 $ docker run -d -e APIKEY=${APIKEY} -e DOMAIN=${DOMAIN} -e RECIPIENT=${RECIPIENT} \ 
-    -e SENDER=${SENDER} -e NATSPOST=${NATSPOST} \
+    -e SENDER=${SENDER} -e NATSPOST=${NATSPOST} -e NATSURL=${NATSURL} -e NATSPORT=${NATSPORT} \
     jblaskowich/hs-micro-email:$release
 ```
